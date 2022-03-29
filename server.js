@@ -16,4 +16,7 @@ app.get('/*', (req, res) =>
   res.sendFile('index.html', {root: 'dist/angular-heroku/'}),
 );
 
-app.listen(process.env.PORT || 8080);
+const server = app.listen(process.env.PORT || 5000, () => {
+  const port = server.address().port;
+  console.log(`Express is working on port ${port}`);
+});
